@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Farhan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <nav>
+            <a href="index.html">HOMEPAGE</a>
+            <a href="projects.html">PROJECTS</a>
+            <a href="about.html">SKILLS</a>
+            <a href="contact.html" class="active">CONTACT</a>
+            <a href="resume.html">RESUME</a>
+        </nav>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+
+                <p id="error-message" style="color: red;"></p>
+                <p id="success-message" style="color: green;"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Add EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init("GdNS-Tx-kpiowdEts"); // Replace with your EmailJS Public Key
+
+        document.querySelector("#contactForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent page refresh
+
+            let name = document.querySelector("#name").value.trim();
+            let email = document.querySelector("#email").value.trim();
+            let message = document.querySelector("#message").value.trim();
+            let errorMessage = document.querySelector("#error-message");
+            let successMessage = document.querySelector("#success-message");
+
+            errorMessage.innerHTML = "";
+            successMessage.innerHTML = "";
+
+            if (name === "" || email === "" || message === "") {
+                errorMessage.innerHTML = "⚠️ All fields are required!";
+                return;
+            }
+            if (!email.includes("@") || !email.includes(".")) {
+                errorMessage.innerHTML = "⚠️ Please enter a valid email!";
+                return;
+            }
+
+            // Send email using EmailJS
+            emailjs.send("service_08bkjgk", "template_jqjni3g", {
+                from_name: name,
+                from_email: email,
+                message: message,
+            })
+            .then(function (response) {
+                successMessage.innerHTML = "✅ Message sent successfully!";
+                document.querySelector("#contactForm").reset(); // Clear the form
+            }, function (error) {
+                errorMessage.innerHTML = "❌ Error sending message. Try again later!";
+            });
+        });
+    </script>
+
+</body>
+
+</html>

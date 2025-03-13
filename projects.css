@@ -1,0 +1,54 @@
+/* Project Section Styles */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.project h3 {
+    color: #00AEEF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.project p {
+    color: #E0E0E0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.github-link {
+    display: inline-block;
+    color: #E0E0E0;
+    font-size: 70px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.github-link:hover {
+    color: #F2994A;
+    transform: scale(1.2);
+}
+
+
