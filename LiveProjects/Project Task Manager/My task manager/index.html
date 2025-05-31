@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Hello! Welcome to Your Task Manager</h2>
+            <button id="continueBtn">Continue</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 class="app-title">Task Manager <i class="fas fa-tasks"></i></h2>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <select id="prioritySelect">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <input type="date" id="taskDeadline" placeholder="deadline (optional)">
+            </select>
+            <button id="addTaskBtn" class="primary-btn">
+                <i class="fas fa-plus"></i> Add Task
+            </button>
+        </div>
+
+        <ul id="taskList"></ul>
+        
+        <div class="stats">
+            <span id="taskCount">0 tasks remaining</span>
+        </div>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
