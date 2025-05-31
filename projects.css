@@ -51,4 +51,21 @@
     transform: scale(1.2);
 }
 
+.logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.preview-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.preview-icon:hover {
+  transform: scale(1.1);
+}
 
